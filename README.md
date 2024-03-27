@@ -5,3 +5,5 @@
 
 我这边已经导出的onnx文件在百度云盘，链接: https://pan.baidu.com/s/1zfdnb9c956kM6kMNFRGJkw 提取码: u513
 onnx文件有UCF101-24数据集和AVA v2.2数据集训练出的这两种，在加载onnx文件的时候，注意指定相符的数据集类型。
+
+opencv-dnn模块能成功加载onnx文件，但是视频动作检测模型的输入张量是5维的，opencv-dnn只支持4维输入张量，因此使用onnxruntime做推理引擎了。

@@ -107,9 +107,9 @@ void YOWOv2::preprocess(vector<Mat> video_clip)
 		vector<cv::Mat> bgrChannels(3);
 		split(resizeimg, bgrChannels);
 
-		memcpy(this->input_tensor.data() + i * image_area, (float *)bgrChannels[0].data, single_chn_size);
+		memcpy(this->input_tensor.data() + i * image_area, (float *)bgrChannels[2].data, single_chn_size);
 		memcpy(this->input_tensor.data() + chn_area + i * image_area, (float *)bgrChannels[1].data, single_chn_size);
-		memcpy(this->input_tensor.data() + 2 * chn_area + i * image_area, (float *)bgrChannels[2].data, single_chn_size);
+		memcpy(this->input_tensor.data() + 2 * chn_area + i * image_area, (float *)bgrChannels[0].data, single_chn_size);   //// to RGB
 	}
 }
 
@@ -418,3 +418,4 @@ int main()
 	vcapture.release();
 	destroyAllWindows();
 }
+

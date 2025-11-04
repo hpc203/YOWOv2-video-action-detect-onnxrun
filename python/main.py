@@ -237,13 +237,13 @@ if __name__ == '__main__':
         ret, frame = cap.read()
         if not ret:
             break
-        
+        frame_rgb = frame[..., (2, 1, 0)]  #### to RGB
         # prepare
         if len(video_clip) <= 0:
             for _ in range(len_clip):
-                video_clip.append(frame)
+                video_clip.append(frame_rgb)
 
-        video_clip.append(frame)
+        video_clip.append(frame_rgb)
         del video_clip[0]
 
         # inference

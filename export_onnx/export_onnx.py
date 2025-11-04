@@ -102,7 +102,7 @@ if __name__ == '__main__':
 
     x = torch.randn((1, 3, args.len_clip, args.img_size, args.img_size))
 
-    output_names = ['conf_preds0', 'conf_preds1', 'conf_preds2', 'cls_preds0', 'cls_preds1', 'cls_preds2', 'reg_preds0', 'reg_preds1', 'erg_preds2']
+    output_names = ['conf_preds0', 'conf_preds1', 'conf_preds2', 'cls_preds0', 'cls_preds1', 'cls_preds2', 'reg_preds0', 'reg_preds1', 'reg_preds2']
     onnxpath = os.path.join('weights', os.path.splitext(os.path.basename(args.weight))[0]+'.onnx')
     with torch.no_grad():
         torch.onnx.export(model, x, onnxpath, 
